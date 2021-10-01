@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,14 +19,14 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Table(name = "user", schema = "public")
-public class User extends org.springframework.security.core.userdetails.User implements IEntity<String> {
+@Table(name = "muser", schema = "public")
+public class MUser extends User implements IEntity<String> {
 
-    public User() {
+    public MUser() {
         this(null, null, Collections.emptyList());
     }
 
-    public User(String username, String password, List<GrantedAuthority> authorities) {
+    public MUser(String username, String password, List<GrantedAuthority> authorities) {
         super(username, password, authorities);
     }
 

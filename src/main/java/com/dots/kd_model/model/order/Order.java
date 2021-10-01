@@ -2,7 +2,7 @@ package com.dots.kd_model.model.order;
 
 import com.dots.kd_model.model.*;
 import com.dots.kd_model.model.user.Employee;
-import com.dots.kd_model.model.user.User;
+import com.dots.kd_model.model.user.MUser;
 import lombok.*;
 
 import javax.persistence.*;
@@ -55,11 +55,11 @@ public class Order implements IEntity<Long> {
      */
     @ToString.Exclude
     @OneToOne(
-            targetEntity = User.class,
+            targetEntity = MUser.class,
             cascade = {CascadeType.ALL},
             fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false)
-    private User client;
+    private MUser client;
 
     /**
      * Сотрудник, исполняющий массаж
